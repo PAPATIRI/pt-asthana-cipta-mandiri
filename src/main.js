@@ -32,34 +32,33 @@ scrollTopBtn.addEventListener("click", () => {
 // ============================================
 // Intersection Observer for Scroll Animations
 // ============================================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -100px 0px",
-};
+// const observerOptions = {
+//   threshold: 0.1,
+//   rootMargin: "0px 0px -100px 0px",
+// };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // Get delay based on position
-      const delay =
-        Array.from(entry.target.parentNode.children).indexOf(entry.target) *
-        150;
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       const delay =
+//         Array.from(entry.target.parentNode.children).indexOf(entry.target) *
+//         150;
 
-      setTimeout(() => {
-        entry.target.style.animationDelay = "0ms";
-        entry.target.style.opacity = "1";
-      }, delay);
+//       setTimeout(() => {
+//         entry.target.style.animationDelay = "0ms";
+//         entry.target.style.opacity = "1";
+//       }, delay);
 
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+//       observer.unobserve(entry.target);
+//     }
+//   });
+// }, observerOptions);
 
 // Observe all scroll-animate elements
-document.querySelectorAll(".scroll-animate").forEach((el) => {
-  el.style.animationDelay = "0ms";
-  observer.observe(el);
-});
+// document.querySelectorAll(".scroll-animate").forEach((el) => {
+//   el.style.animationDelay = "0ms";
+//   observer.observe(el);
+// });
 
 // ============================================
 // Contact Form Validation & Submission
@@ -162,30 +161,30 @@ contactForm.addEventListener("submit", (e) => {
 // ============================================
 // Smooth Scrolling for Anchor Links
 // ============================================
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+//   anchor.addEventListener("click", function (e) {
+//     const href = this.getAttribute("href");
 
-    // Skip if it's just '#'
-    if (href === "#") return;
+//     // Skip if it's just '#'
+//     if (href === "#") return;
 
-    e.preventDefault();
+//     e.preventDefault();
 
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+//     const target = document.querySelector(href);
+//     if (target) {
+//       target.scrollIntoView({
+//         behavior: "smooth",
+//         block: "start",
+//       });
 
-      // Close mobile menu if open
-      const navCollapse = document.querySelector(".navbar-collapse");
-      if (navCollapse.classList.contains("show")) {
-        document.querySelector(".navbar-toggler").click();
-      }
-    }
-  });
-});
+//       // Close mobile menu if open
+//       const navCollapse = document.querySelector(".navbar-collapse");
+//       if (navCollapse.classList.contains("show")) {
+//         document.querySelector(".navbar-toggler").click();
+//       }
+//     }
+//   });
+// });
 
 // ============================================
 // Add Active Navigation Link on Scroll
@@ -200,7 +199,7 @@ window.addEventListener("scroll", () => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
 
-    if (window.pageYOffset >= sectionTop - 200) {
+    if (window.pageYOffset >= sectionTop - 500) {
       current = section.getAttribute("id");
     }
   });
@@ -246,11 +245,3 @@ if ("IntersectionObserver" in window) {
     imageObserver.observe(img);
   });
 }
-
-// ============================================
-// Initialize on DOM Ready
-// ============================================
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("PT Digital Nusantara Group - Landing Page Loaded");
-  console.log("Navigation ready. All animations and features enabled.");
-});

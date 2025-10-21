@@ -30,31 +30,79 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
-.hero::before {
-  content: "";
+/* Lingkaran background dengan efek blur spread */
+.circle {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(13,65,225,0.2)" stroke-width="1"/></pattern></defs><rect width="80" height="80" fill="url(%23grid)"/></svg>');
-  background-size: 240px 240px;
-  transform: rotate(45deg);
-  opacity: 0.5;
-  animation: gridMove 10s linear infinite;
-  will-change: background-position;
-  pointer-events: none;
-  z-index: 0;
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(40px); /* Tambahkan filter blur */
 }
 
-@keyframes gridMove {
-  0% {
-    background-position: 0 0;
-  }
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 181, 255, 1) 0%,
+    rgba(147, 181, 255, 0.6) 50%
+  );
+  top: -200px;
+  left: -200px;
+  box-shadow: 0 0 120px 60px rgba(147, 181, 255, 0.3);
+  animation: float 20s ease-in-out infinite;
+}
+
+.circle-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 181, 255, 1) 0%,
+    rgba(147, 181, 255, 0.5) 50%
+  );
+  top: 50%;
+  right: -100px;
+  box-shadow: 0 0 100px 50px rgba(120, 160, 255, 0.15);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+/* Animasi floating */
+@keyframes float {
+  0%,
   100% {
-    background-position: -240px 0;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.02);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .circle {
+    filter: blur(30px); /* Kurangi blur di mobile */
+  }
+
+  .circle-1 {
+    width: 250px;
+    height: 250px;
+    top: -50px;
+    left: -80px;
+  }
+
+  .circle-2 {
+    width: 200px;
+    height: 200px;
+    right: -60px;
   }
 }
 
@@ -424,10 +472,6 @@ section {
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;
-  }
-  .hero::before {
-    /* display: none; */
-    background-size: 60px 60px;
   }
 
   .contact-row {
