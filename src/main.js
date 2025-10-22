@@ -245,3 +245,46 @@ if ("IntersectionObserver" in window) {
     imageObserver.observe(img);
   });
 }
+
+// ============================================
+// animation typing hero title
+// ============================================
+const el = document.getElementById("typewriter");
+
+// kata-kata yang diputar
+const words = ["Inovatif", "Efisien", "Terpercaya"];
+
+// pengaturan kecepatan (ms)
+const TYPE_SPEED = 80; // jeda per karakter saat mengetik
+const HOLD = 1000; // jeda setelah kata selesai diketik
+const FADE = 350; // durasi fade-out (harus sama dengan CSS transition)
+
+function typeWord(word, done) {
+  el.textContent = "";
+  let i = 0;
+  (function tick() {
+    if (i < word.length) {
+      el.textContent += word[i++];
+      setTimeout(tick, TYPE_SPEED);
+    } else {
+      setTimeout(done, HOLD);
+    }
+  })();
+}
+
+function fadeOut(done) {
+  el.classList.add("fade-out");
+  setTimeout(() => {
+    el.classList.remove("fade-out");
+    el.textContent = "";
+    done && done();
+  }, FADE);
+}
+
+(function cycle(index = 0) {
+  typeWord(words[index], () => {
+    fadeOut(() => {
+      cycle((index + 1) % words.length);
+    });
+  });
+})();

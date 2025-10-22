@@ -107,23 +107,6 @@ button {
   background-color: rgba(var(--brand-5-rgb), 0.1) !important;
 }
 
-/* BORDER */
-.border-brand-1 {
-  border-color: var(--brand-1) !important;
-}
-.border-brand-2 {
-  border-color: var(--brand-2) !important;
-}
-.border-brand-3 {
-  border-color: var(--brand-3) !important;
-}
-.border-brand-4 {
-  border-color: var(--brand-4) !important;
-}
-.border-brand-5 {
-  border-color: var(--brand-5) !important;
-}
-
 /* Solid buttons */
 .btn-brand-1,
 .btn-brand-2,
@@ -237,38 +220,22 @@ button {
   --bs-link-hover-color: var(--brand-4);
 }
 
-/* Contoh: tema navbar pakai brand-3 sebagai default */
-.navbar-brand-3 {
-  --bs-navbar-color: var(--brand-3);
-  --bs-navbar-hover-color: var(--brand-2);
-  --bs-navbar-active-color: var(--brand-1);
-  --bs-navbar-disabled-color: rgba(var(--brand-3-rgb), 0.4);
-  --bs-navbar-brand-color: var(--brand-1);
-  --bs-navbar-brand-hover-color: var(--brand-2);
-
-  /* opsional: warna border & ikon toggler */
-  --bs-navbar-toggler-border-color: rgba(var(--brand-3-rgb), 0.35);
-  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='%23"/* gunakan brand-3 sebagai garis hamburger */"0a85ed".replace(
-      "#",
-      ""
-    )/* = var(--brand-3) tapi inline hex */ + "' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
 /* navbar styling */
-/* ---- Glassmorphism putih untuk navbar (Bootstrap-friendly) ---- */
 .navbar-bg {
-  /* Latar kaca putih */
   background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.8));
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  position: fixed;
+  z-index: 1000;
+  left: 10%;
+  right: 10%;
+  border-radius: 20px;
 
-  /* Garis tepi tipis seperti kaca */
-  margin: 20px 10%;
+  /* margin: 20px 10%; */
   top: 10px;
   transition: all;
   transition-duration: 500ms;
 
-  /* Shadow lembut biar “terangkat” */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -278,4 +245,15 @@ button {
   --bs-navbar-hover-color: var(--brand-2);
   --bs-navbar-brand-color: var(--on-brand-light);
   --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1200px) {
+  .navbar-bg {
+    position: relative;
+    border-radius: 0;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
 }
