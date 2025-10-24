@@ -41,7 +41,7 @@ a {
     rgba(147, 181, 255, 0.5) 50%
   );
   top: 50%;
-  right: -100px;
+  right: -200px;
   box-shadow: 0 0 100px 50px rgba(120, 160, 255, 0.15);
   animation: float 25s ease-in-out infinite reverse;
 }
@@ -89,6 +89,9 @@ a {
   .caret-mobile {
     display: block;
   }
+  .circle-2 {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -115,6 +118,7 @@ a {
 /* -------------- */
 #home {
   max-height: 100vh;
+  overflow-x: hidden;
 }
 .hero {
   width: 100vw;
@@ -608,8 +612,8 @@ footer {
 /* Scroll to Top Button */
 .scroll-top-btn {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 20px;
+  right: 20px;
   width: 50px;
   height: 50px;
   background-color: var(--primary-blue);
