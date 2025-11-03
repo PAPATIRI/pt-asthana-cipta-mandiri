@@ -328,23 +328,21 @@ a {
 .subsidiary-card {
   background: white;
   border-radius: 45px;
-  padding: 2rem;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   min-height: 500px;
   position: relative;
   overflow: hidden;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Logo tetap di tengah secara default */
+  justify-content: space-between;
   background-image: url("https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170");
   background-size: cover;
   background-position: center;
 }
 .subsidiary-card:hover {
-  justify-content: flex-start; /* Pindahkan ke atas */
   box-shadow: 0 12px 30px rgba(0, 102, 204, 0.15);
 }
 .subsidiary-blur {
@@ -358,11 +356,11 @@ a {
 }
 .subsidiary-card:hover .subsidiary-blur {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .subsidiary-logo-wrapper {
-  width: 200px;
-  height: 200px;
+  width: auto;
+  height: 170px;
   position: relative;
   z-index: 10;
   display: flex;
@@ -371,35 +369,18 @@ a {
   transition: all 300ms ease-in-out;
   margin-top: 0; /* Default tidak ada margin */
 }
-.subsidiary-card:hover .subsidiary-logo-wrapper {
-  transform: scale(0.8);
-  margin-top: 1rem;
-  transition: all 300ms ease-in-out;
-}
+
 .subsidiary-logo {
   object-fit: cover;
   height: 100%;
-  width: 100%;
+  width: auto;
 }
 .subsidiary-content {
-  position: relative;
+  position: static;
   z-index: 10;
+  padding: 40px 20px;
   background-color: white;
-  border-radius: 45px;
-  padding: 20px 12px;
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(20px);
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
-    max-height 300ms ease-in-out;
-  pointer-events: none;
   overflow: hidden;
-}
-.subsidiary-card:hover .subsidiary-content {
-  opacity: 1;
-  max-height: 500px;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 .ornamen-wrapper {
   height: 300px;
@@ -542,6 +523,11 @@ a {
 .strength-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+@media (max-width: 1024px) {
+  #whychoose {
+    padding: 100px 20px;
+  }
 }
 
 /* --------------- */
