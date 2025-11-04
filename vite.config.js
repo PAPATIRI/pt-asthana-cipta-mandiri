@@ -7,4 +7,12 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./public"),
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        karir: resolve(__dirname, "karir.html"),
+      },
+    },
+  },
 });
