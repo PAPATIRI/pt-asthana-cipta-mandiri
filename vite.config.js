@@ -3,6 +3,7 @@ import path from "path";
 import { resolve } from "path";
 
 export default defineConfig({
+  base: "./",
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "./public"),
