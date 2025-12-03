@@ -30,37 +30,6 @@ scrollTopBtn.addEventListener("click", () => {
 });
 
 // ============================================
-// Intersection Observer for Scroll Animations
-// ============================================
-// const observerOptions = {
-//   threshold: 0.1,
-//   rootMargin: "0px 0px -100px 0px",
-// };
-
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       const delay =
-//         Array.from(entry.target.parentNode.children).indexOf(entry.target) *
-//         150;
-
-//       setTimeout(() => {
-//         entry.target.style.animationDelay = "0ms";
-//         entry.target.style.opacity = "1";
-//       }, delay);
-
-//       observer.unobserve(entry.target);
-//     }
-//   });
-// }, observerOptions);
-
-// Observe all scroll-animate elements
-// document.querySelectorAll(".scroll-animate").forEach((el) => {
-//   el.style.animationDelay = "0ms";
-//   observer.observe(el);
-// });
-
-// ============================================
 // Contact Form Validation & Submission
 // ============================================
 const contactForm = document.getElementById("contactForm");
@@ -157,34 +126,6 @@ contactForm.addEventListener("submit", (e) => {
     formMessage.style.color = "#FF6B6B";
   }
 });
-
-// ============================================
-// Smooth Scrolling for Anchor Links
-// ============================================
-// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-//   anchor.addEventListener("click", function (e) {
-//     const href = this.getAttribute("href");
-
-//     // Skip if it's just '#'
-//     if (href === "#") return;
-
-//     e.preventDefault();
-
-//     const target = document.querySelector(href);
-//     if (target) {
-//       target.scrollIntoView({
-//         behavior: "smooth",
-//         block: "start",
-//       });
-
-//       // Close mobile menu if open
-//       const navCollapse = document.querySelector(".navbar-collapse");
-//       if (navCollapse.classList.contains("show")) {
-//         document.querySelector(".navbar-toggler").click();
-//       }
-//     }
-//   });
-// });
 
 // ============================================
 // Add Active Navigation Link on Scroll

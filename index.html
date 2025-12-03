@@ -462,46 +462,69 @@
             <div class="col-lg-6">
               <form id="contactForm" novalidate>
                 <div class="mb-3">
+                  <label for="name" class="form-label text-white"
+                    >Nama <span class="text-danger">*</span></label
+                  >
                   <input
                     type="text"
                     class="form-control"
                     id="name"
-                    placeholder="Your Name"
+                    name="name"
+                    placeholder="Masukkan nama Anda"
                     required
                   />
-                  <small class="text-danger" id="nameError"></small>
+                  <small
+                    class="text-danger d-block mt-1"
+                    id="nameError"
+                  ></small>
                 </div>
+
                 <div class="mb-3">
+                  <label for="email" class="form-label text-white"
+                    >Email <span class="text-danger">*</span></label
+                  >
                   <input
                     type="email"
                     class="form-control"
                     id="email"
-                    placeholder="Your Email"
+                    name="email"
+                    placeholder="contoh@email.com"
                     required
                   />
-                  <small class="text-danger" id="emailError"></small>
+                  <small
+                    class="text-danger d-block mt-1"
+                    id="emailError"
+                  ></small>
                 </div>
+
                 <div class="mb-3">
+                  <label for="message" class="form-label text-white"
+                    >Pesan <span class="text-danger">*</span></label
+                  >
                   <textarea
                     class="form-control"
                     id="message"
-                    placeholder="Your Message"
+                    name="message"
+                    placeholder="Tulis pesan Anda di sini..."
                     rows="5"
                     required
                   ></textarea>
-                  <small class="text-danger" id="messageError"></small>
+                  <small
+                    class="text-danger d-block mt-1"
+                    id="messageError"
+                  ></small>
                 </div>
+
                 <button
                   type="submit"
-                  class="btn btn-lg w-100 rounded-pill"
-                  style="background-color: white"
+                  class="btn btn-primary btn-lg w-100 rounded-pill"
                 >
                   Kirim Pesan
                 </button>
+
                 <small
                   id="formMessage"
-                  class="d-block mt-2"
-                  style="text-align: center"
+                  class="d-block mt-2 text-center"
                 ></small>
               </form>
             </div>
@@ -609,5 +632,6 @@
 
     <!-- Main Application JS -->
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/message.js"></script>
   </body>
 </html>
