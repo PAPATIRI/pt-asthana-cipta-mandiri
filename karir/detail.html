@@ -42,7 +42,7 @@
     />
     <link rel="stylesheet" href="/src/css/style.css" />
     <link rel="stylesheet" href="/src/css/custom.css" />
-    <link rel="stylesheet" href="/src/css/karir.css" />
+    <link rel="stylesheet" href="/src/css/karir-detail.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -107,52 +107,133 @@
         </div>
       </div>
     </nav>
+
+    <!-- Main Content -->
     <main style="min-height: 100vh">
+      <!-- Alert Container -->
       <div
         class="alert-container position-fixed top-0 start-50 translate-middle-x p-3"
         style="z-index: 9999; min-width: 300px"
         id="alertContainer"
       ></div>
 
-      <!-- Hero Section -->
-      <div
-        class="hero-section"
-        style="padding-top: 160px; padding-bottom: 100px"
-      >
+      <!-- Header -->
+      <div class="detail-header">
         <div class="container">
-          <h1 class="display-4 fw-bold mb-3">Kembangkan Karir Anda Sekarang</h1>
-          <p class="lead mb-0">
-            Temukan peluang karir terbaik dan kembangkan potensi Anda bersama
-            kami
-          </p>
-        </div>
-      </div>
+          <div
+            id="headerLoading"
+            style="padding-top: 160px; padding-bottom: 100px"
+          >
+            <div class="skeleton skeleton-title" style="width: 60%"></div>
+            <div class="skeleton skeleton-text" style="width: 40%"></div>
+          </div>
 
-      <div class="container">
-        <!-- Loading State -->
-        <div id="loadingState" class="row">
-          <div class="col-md-6 col-lg-4 mb-4" v-for="i in 3">
-            <div class="card job-card">
-              <div class="card-body">
-                <div class="skeleton skeleton-text" style="width: 60%"></div>
-                <div class="skeleton skeleton-text" style="width: 40%"></div>
-                <div class="skeleton skeleton-text" style="width: 80%"></div>
-              </div>
+          <!-- Header Content -->
+          <div
+            id="headerContent"
+            style="display: none; padding-top: 160px; padding-bottom: 100px"
+          >
+            <h1 class="display-5 fw-bold mb-3" id="jobTitle"></h1>
+            <div class="d-flex align-items-center gap-3">
+              <span class="badge badge-active">
+                <i class="bi bi-circle-fill me-2"></i>
+                Lowongan Aktif
+              </span>
+              <span id="postedDate"></span>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Jobs List -->
-        <div id="jobsList" class="row" style="display: none"></div>
+      <!-- Main Content -->
+      <div class="container mb-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="card detail-card">
+              <div class="card-body p-4 p-md-5">
+                <!-- Loading State -->
+                <div id="contentLoading">
+                  <div class="mb-5">
+                    <div
+                      class="skeleton skeleton-title"
+                      style="width: 40%"
+                    ></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div
+                      class="skeleton skeleton-text"
+                      style="width: 80%"
+                    ></div>
+                  </div>
+                  <div class="mb-5">
+                    <div
+                      class="skeleton skeleton-title"
+                      style="width: 40%"
+                    ></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div
+                      class="skeleton skeleton-text"
+                      style="width: 60%"
+                    ></div>
+                  </div>
+                </div>
 
-        <!-- Empty State -->
-        <div id="emptyState" class="empty-state" style="display: none">
-          <i class="bi bi-inbox display-1 text-muted"></i>
-          <h3 class="mt-3">Belum Ada Lowongan Tersedia</h3>
-          <p class="text-muted">
-            Saat ini belum ada lowongan kerja yang dibuka. Silakan cek kembali
-            nanti.
-          </p>
+                <!-- Detail Content -->
+                <div id="detailContent" style="display: none">
+                  <!-- Descriptions Section -->
+                  <div class="mb-5" id="descriptionsSection">
+                    <h3 class="section-title text-dark">
+                      <i class="bi bi-file-text me-2"></i>
+                      Deskripsi Pekerjaan
+                    </h3>
+                    <div class="content-text" id="descriptions"></div>
+                  </div>
+
+                  <!-- Requirements Section -->
+                  <div class="mb-5" id="requirementsSection">
+                    <h3 class="section-title">
+                      <i class="bi bi-list-check me-2"></i>
+                      Persyaratan
+                    </h3>
+                    <div class="content-text" id="requirements"></div>
+                  </div>
+
+                  <!-- Apply Button -->
+                  <div class="text-center mt-5 pt-4 border-top">
+                    <h4 class="mb-4">Tertarik dengan posisi ini?</h4>
+                    <button
+                      style="font-weight: normal"
+                      class="btn btn-primary btn-lg rounded-pill btn-brand-1 px-5"
+                      id="applyBtn"
+                    >
+                      <i class="bi bi-send-fill me-2"></i>
+                      Ajukan Lamaran Sekarang
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Error State -->
+                <div
+                  id="errorState"
+                  class="text-center py-5"
+                  style="display: none"
+                >
+                  <i
+                    class="bi bi-exclamation-triangle display-1 text-warning"
+                  ></i>
+                  <h3 class="mt-3">Lowongan Tidak Ditemukan</h3>
+                  <p class="text-muted mb-4">
+                    Lowongan yang Anda cari tidak tersedia atau sudah ditutup.
+                  </p>
+                  <a href="/karir/index.html" class="btn btn-primary">
+                    <i class="bi bi-arrow-left me-2"></i>
+                    Kembali ke Daftar Lowongan
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -211,6 +292,6 @@
     </script>
 
     <!-- Main Application JS -->
-    <script type="module" src="/src/js/karir.js"></script>
+    <script type="module" src="/src/js/karir-detail.js"></script>
   </body>
 </html>

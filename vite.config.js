@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         karir: resolve(__dirname, "karir/index.html"),
+        // karir_detail: resolve(__dirname, "karir/detail.html"),
       },
     },
   },

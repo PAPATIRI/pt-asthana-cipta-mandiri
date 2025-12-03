@@ -1,193 +1,44 @@
-:root {
-  --primary-color: #0d41e1;
-  --success-color: #198754;
-  --danger-color: #dc3545;
-}
-
-body {
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-  background-color: white;
-  min-height: 100vh;
-  padding: 2rem 0;
-}
-
-.form-container {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.form-header {
-  background: linear-gradient(135deg, #0d41e1 0%, #0a85ed 100%);
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-.form-header h1 {
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.form-body {
-  padding: 2.5rem;
-}
-
-.form-label {
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
-}
-
-.form-label .required {
-  color: var(--danger-color);
-}
-
-.form-control,
-.form-select {
-  border: 2px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
+.job-card {
   transition: all 0.3s ease;
-}
-
-.form-control:focus,
-.form-select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
-}
-
-.form-control.is-invalid,
-.form-select.is-invalid {
-  border-color: var(--danger-color);
-}
-
-.form-control.is-valid,
-.form-select.is-valid {
-  border-color: var(--success-color);
-}
-
-.file-upload-wrapper {
-  position: relative;
-  border: 2px dashed #cbd5e0;
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  background: #f7fafc;
-}
-
-.file-upload-wrapper:hover {
-  border-color: var(--primary-color);
-  background: #edf2f7;
-}
-
-.file-upload-wrapper.drag-over {
-  border-color: var(--primary-color);
-  background: #e6f2ff;
-}
-
-.file-upload-wrapper input[type="file"] {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
+  border: 1px solid #e0e0e0;
   cursor: pointer;
+  padding: 14px;
+  border-radius: 20px;
 }
-
-.file-upload-icon {
-  font-size: 3rem;
-  color: #a0aec0;
-  margin-bottom: 1rem;
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-color: #0d6efd;
 }
-
-.file-info {
-  display: none;
-  margin-top: 1rem;
-  padding: 1rem;
-  background: #e6f2ff;
-  border-radius: 8px;
-  text-align: left;
-}
-
-.file-info.show {
-  display: block;
-}
-
-.btn-submit {
-  background: linear-gradient(135deg, #0d41e1 0%, #0a85ed 100%);
-  border: none;
-  padding: 1rem 3rem;
-  font-weight: 600;
-  border-radius: 10px;
-  transition: transform 0.2s ease;
-}
-
-.btn-submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-}
-
-.btn-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.spinner-border-sm {
-  width: 1rem;
-  height: 1rem;
-  border-width: 0.15em;
-}
-
-.alert-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  max-width: 400px;
-}
-
-.fade-in {
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.loading-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 9998;
-  justify-content: center;
-  align-items: center;
-}
-
-.loading-overlay.show {
-  display: flex;
-}
-
-.loading-content {
-  text-align: center;
+.job-badge {
+  background-color: #03811c;
   color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
 }
-
-.loading-spinner {
-  width: 4rem;
-  height: 4rem;
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+.empty-state {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero-section {
+  background: linear-gradient(135deg, var(--brand-2) 0%, var(--brand-1) 100%);
+  color: white;
+  margin-bottom: 2rem;
 }
